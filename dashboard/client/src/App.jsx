@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Dashboard from './Components/Dashboard';
+import PlantGrid from './Components/PlantGrid';
+
 
 const App = () => {
-  return (
-    <div>Dashboard</div>
-  )
+    return(
+      <>
+       <Dashboard />;
+      </>
+      
+    )
 }
 
 export default App
