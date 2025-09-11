@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dashboard from './Components/Dashboard';
-import PlantGrid from './Components/PlantGrid';
+import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
 
 
 const App = () => {
-    return(
-      <>
-       <Dashboard />;
-      </>
-      
-    )
+  return (
+    <>
+    <Navbar/>
+      <Dashboard />
+      <Footer />
+    </>
+  );
 }
 
 export default App

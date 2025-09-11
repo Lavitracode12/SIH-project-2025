@@ -26,8 +26,8 @@ const PlantGrid = ({ plants }) => {
 	return (
 		<div className="bg-white rounded-xl shadow p-6 border border-green-200">
 			<h2 className="text-xl font-semibold text-green-600 mb-4">Plant Health Visualization</h2>
-			<div className="mb-6">
-				<ResponsiveContainer width="100%" height={200}>
+			<div className="mb-10 mt-8 pt-8" style={{ minHeight: '320px' }}>
+				<ResponsiveContainer width="100%" height={260}>
 					<PieChart>
 						<Pie
 							data={chartData}
@@ -35,8 +35,8 @@ const PlantGrid = ({ plants }) => {
 							nameKey="name"
 							cx="50%"
 							cy="50%"
-							outerRadius={60}
-							label
+							outerRadius={70}
+							label={({ name, value }) => `${name}: ${value}`}
 						>
 							{chartData.map((entry, index) => (
 								<Cell key={`cell-${index}`} fill={entry.color} />
@@ -47,23 +47,23 @@ const PlantGrid = ({ plants }) => {
 					</PieChart>
 				</ResponsiveContainer>
 			</div>
-			<div className="grid grid-cols-10 gap-2">
-				{plants.map((plant) => (
-					<div
-						key={plant.id}
-						className={`w-7 h-7 rounded border flex items-center justify-center text-xs font-bold ${
-							plant.healthStatus === 'infected'
-								? 'bg-red-300 border-red-500 text-red-900'
-								: plant.healthStatus === 'mild'
-								? 'bg-yellow-200 border-yellow-400 text-yellow-800'
-								: 'bg-green-200 border-green-400 text-green-800'
-						}`}
-						title={`Plant ${plant.id}: ${plant.healthStatus}`}
-					>
-						{plant.id}
+					<div className="grid grid-cols-10 gap-2">
+						{plants.map((plant) => (
+							<div
+								key={plant.id}
+								className={`w-10 h-10 rounded border flex items-center justify-center text-base font-bold ${
+									plant.healthStatus === 'infected'
+										? 'bg-red-300 border-red-500 text-red-900'
+										: plant.healthStatus === 'mild'
+										? 'bg-yellow-200 border-yellow-400 text-yellow-800'
+										: 'bg-green-200 border-green-400 text-green-800'
+								}`}
+								title={`Plant ${plant.id}: ${plant.healthStatus}`}
+							>
+								{plant.id}
+							</div>
+						))}
 					</div>
-				))}
-			</div>
 		</div>
 	);
 };
