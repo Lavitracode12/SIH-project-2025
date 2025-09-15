@@ -1,0 +1,19 @@
+Plant Disease Analysis Results
+========================================
+
+Image: crab-apple-fruit-tree-rust.jpg
+Image Size: (1244, 1244, 3)
+Model: Hugging Face MobileNetV2
+
+Top Prediction:
+  Disease: Bell Pepper with Bacterial Spot
+  Confidence: 88.7%
+
+All Predictions:
+  1. Bell Pepper with Bacterial Spot: 88.7%
+  2. Grape with Esca (Black Measles): 3.9%
+  3. Cedar Apple Rust: 2.7%
+  4. Corn (Maize) with Common Rust: 1.2%
+  5. Strawberry with Leaf Scorch: 1.0%
+
+Analysis completed using local Hugging Face model
