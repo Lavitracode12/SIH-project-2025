@@ -1,0 +1,19 @@
+# Real-Time Hybrid Plant Analysis Requirements
+# These packages are needed for webcam-based real-time analysis
+
+# Core computer vision and video processing
+opencv-python>=4.8.0
+numpy>=1.21.0
+
+# Machine learning frameworks (already required by base system)
+torch>=1.13.0
+torchvision>=0.14.0
+ultralytics>=8.0.0
+transformers>=4.21.0
+
+# Image processing (already required by base system)  
+Pillow>=9.0.0
+
+# Optional: For better performance
+# opencv-contrib-python>=4.8.0  # Additional OpenCV modules
+# ffmpeg-python>=0.2.0         # Video codec support

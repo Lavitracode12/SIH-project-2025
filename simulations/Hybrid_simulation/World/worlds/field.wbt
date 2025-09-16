@@ -1,0 +1,1800 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Soil.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.29206758981109354 -0.09913382390785544 0.9512460291319724 3.766215621212197
+  position 4.67643879804481 4.209023148178413 1.240924015138567
+  follow "robot"
+  followType "Mounted Shot"
+}
+TexturedBackground {
+  texture "noon_cloudy_countryside"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.35 1.08 0
+  floorSize 10 8
+  floorAppearance Soil {
+    color 0.466667 0.462745 0.482353
+  }
+  wallHeight 0.5
+}
+Robot {
+  translation 3.7 3.32 0.16
+  rotation 0 0 1 -5.307179586466759e-06
+  children [
+    Pose {
+      translation -0.02 0 0.097
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.03 0 0.97
+          }
+          device [
+            RotationalMotor {
+              name "rotational motor base"
+            }
+          ]
+          endPoint Solid {
+            children [
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0 1 0
+                  anchor -0.006 0.007 0.009
+                }
+                device [
+                  RotationalMotor {
+                    name "rotational motor down"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 0.01 0.04
+                  rotation 0 1 0 0
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                      }
+                      geometry Mesh {
+                        url [
+                          "../arm_link_base.stl"
+                        ]
+                      }
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0 1 0
+                        anchor -0.006 -0.004 0.041
+                      }
+                      device [
+                        RotationalMotor {
+                          name "rotational motor up"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation -0.025 -0.0129 0.04
+                        rotation 0 1 0 0
+                        children [
+                          Shape {
+                            appearance PBRAppearance {
+                            }
+                            geometry Mesh {
+                              url [
+                                "../arm_link_up.stl"
+                              ]
+                            }
+                          }
+                          Solid {
+                            translation -0.02 0 0.016
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                }
+                                geometry Box {
+                                  size 0.03 0.02 0.01
+                                }
+                              }
+                            ]
+                          }
+                          Camera {
+                            translation -0.0577646 2.06928e-08 0.128977
+                            rotation -2.1786e-07 1.4821e-09 -1 -3.1415853071795863
+                            name "arm_camera"
+                            boundingObject Box {
+                              size 0.01 0.05 0.03
+                            }
+                            fieldOfView 0.4
+                            width 720
+                            height 1024
+                          }
+                        ]
+                        name "arm_upper"
+                        boundingObject Mesh {
+                          url [
+                            "../arm_link_up.stl"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "arm_base"
+                  boundingObject Mesh {
+                    url [
+                      "../arm_link_base.stl"
+                    ]
+                  }
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                }
+                geometry Mesh {
+                  url [
+                    "../arm_base.stl"
+                  ]
+                }
+              }
+            ]
+            name "solid(1)"
+          }
+        }
+      ]
+    }
+    Solid {
+      translation 0 0 0.062
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.250004 0.749996 0.293919
+            roughness 1
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "../chassis_rotated.stl"
+            ]
+          }
+        }
+      ]
+      name "chasis"
+      boundingObject Box {
+        size 0.3 0.05 0.17
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.231 -0.143 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.231 -0.143 -0.043
+        rotation 1 -1.2560716600447265e-15 -3.92522393763977e-16 1.5707999999999938
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.231 0.143 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor4"
+        }
+      ]
+      endPoint Solid {
+        translation 0.231 0.143 -0.043
+        rotation -1 -7.457925481515555e-16 1.1873802411360293e-15 1.570799999999996
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.051 0.145 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor5"
+        }
+      ]
+      endPoint Solid {
+        translation 0.051 0.145 -0.043
+        rotation -1 1.1775671812919308e-16 7.457925481515561e-16 1.5707999999999942
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.129 0.142 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor6"
+        }
+      ]
+      endPoint Solid {
+        translation -0.129 0.142 -0.043
+        rotation -1 0 -9.02801505657147e-16 1.5707999999999944
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.051 -0.145 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.051 -0.145 -0.043
+        rotation 1 9.42053745033545e-16 0 1.5707999999999935
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.129 -0.143 -0.043
+      }
+      device [
+        RotationalMotor {
+          name "rotational motor3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.129 -0.143 -0.043
+        rotation 1 -6.672880693987621e-16 3.1401791501118216e-16 1.57079999999999
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../tire_rotated.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.04
+          radius 0.075
+          subdivision 40
+        }
+        physics Physics {
+        }
+      }
+    }
+    Solid {
+      translation 0.0551491 0 0.00989405
+      rotation 0 -1 0 0.04599
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0.8
+          }
+          geometry Mesh {
+            url [
+              "../Base_rotated.stl"
+            ]
+          }
+        }
+      ]
+      name "base"
+      boundingObject Box {
+        size 0.5 0.21 0.12
+      }
+    }
+    DistanceSensor {
+      translation 0.05 0.12 0.06
+      rotation 0 0 -1 -2.094405307179586
+      name "distance sensor right"
+      lookupTable [
+        0 0 0
+        1 100 0
+      ]
+    }
+    DistanceSensor {
+      translation 0.05 -0.12 0.06
+      rotation 0 0 1 -2.094395307179586
+      name "distance sensor left"
+      lookupTable [
+        0 0 0
+        1 100 0
+      ]
+    }
+  ]
+  physics Physics {
+  }
+  controller "wall_follower"
+  window "plant_detection_window"
+}
+Pose {
+  translation -0.63 0.58 0
+  children [
+    Solid {
+      translation 4.48 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(1)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 4.89 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(2)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.34 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(3)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.76 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.21 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(5)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(6)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.1 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(7)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 0.52 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(8)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.07 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(9)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(10)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.23 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(11)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.73 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(12)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.27 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(13)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.82 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(14)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.39 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(15)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -4.32 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+  ]
+}
+Pose {
+  translation -0.63 -1.03 0
+  children [
+    Solid {
+      translation 4.48 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(3)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 4.92 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.34 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.76 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.21 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.1 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 0.52 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.07 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.23 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.73 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.27 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.82 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.39 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+  ]
+}
+Pose {
+  translation -0.63 -2.57 0
+  children [
+    Solid {
+      translation 4.25 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.67 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.13 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.76 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.21 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.1 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 0.52 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.07 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.23 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.73 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.27 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.82 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.39 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -4.38 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+  ]
+}
+Pose {
+  translation -0.63 -4.13 0
+  children [
+    Solid {
+      translation 4.27 3.55 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 4.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.34 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.76 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.21 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.1 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 0.52 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.07 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.23 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.73 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.27 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.82 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.39 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+  ]
+}
+Pose {
+  translation -0.63 -5.75 0
+  children [
+    Solid {
+      translation 4.48 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.9 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 3.34 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.76 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 2.21 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 1.1 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation 0.52 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.07 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -0.66 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.23 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -1.73 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.27 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -2.82 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.39 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -3.89 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+    Solid {
+      translation -4.36 3.61 0.42
+      children [
+        CadShape {
+          url [
+            "../model/tomato.dae"
+          ]
+        }
+      ]
+      name "solid(4)"
+      boundingObject Shape {
+        geometry Box {
+          size 0.6 0.7 0.8
+        }
+      }
+    }
+  ]
+}
