@@ -1,0 +1,114 @@
+# ============================================================================
+# SIH Project 2025 - Smart Pesticide Spraying System
+# Complete Requirements for Python Dependencies
+# ============================================================================
+# This file contains all Python packages needed to run the entire project
+# including vision-ML, simulation controllers, and hybrid plant analysis
+
+# ============================================================================
+# CORE MACHINE LEARNING FRAMEWORKS
+# ============================================================================
+
+# PyTorch ecosystem - Deep learning framework
+torch>=1.13.0
+torchvision>=0.14.0
+
+# Hugging Face Transformers - Pre-trained models and processors
+transformers>=4.21.0
+
+# Ultralytics YOLO - Object detection for leaf detection
+ultralytics>=8.0.0
+
+# ============================================================================
+# COMPUTER VISION & IMAGE PROCESSING
+# ============================================================================
+
+# OpenCV - Computer vision library
+opencv-python>=4.8.0
+
+# PIL/Pillow - Image processing
+Pillow>=9.0.0
+
+# NumPy - Numerical operations
+numpy>=1.21.0
+
+# ============================================================================
+# DATA VISUALIZATION & ANALYSIS
+# ============================================================================
+
+# Matplotlib - Plotting and visualization for robot tracking
+matplotlib>=3.5.0
+
+# ============================================================================
+# WEB FRAMEWORK & API (if backend is implemented)
+# ============================================================================
+
+# Flask - Lightweight web framework (optional for API)
+# flask>=2.0.0
+# flask-cors>=4.0.0
+
+# FastAPI - Modern API framework (alternative)
+# fastapi>=0.68.0
+# uvicorn>=0.15.0
+
+# ============================================================================
+# ROBOT SIMULATION DEPENDENCIES
+# ============================================================================
+
+# NOTE: Webots controller module is provided by Webots installation
+# No additional installation required for 'controller' module
+
+# ============================================================================
+# UTILITY LIBRARIES
+# ============================================================================
+
+# JSON handling (built-in, but ensuring compatibility)
+# Standard library modules used: json, time, math, os, sys, datetime
+
+# ============================================================================
+# OPTIONAL PERFORMANCE ENHANCEMENTS
+# ============================================================================
+
+# OpenCV with additional modules (uncomment if needed)
+# opencv-contrib-python>=4.8.0
+
+# FFmpeg for video processing (uncomment if needed)
+# ffmpeg-python>=0.2.0
+
+# Accelerated NumPy operations (uncomment if needed)
+# scipy>=1.7.0
+
+# GPU acceleration for CUDA-enabled systems (uncomment if GPU available)
+# torch>=1.13.0+cu118  # Replace base torch with CUDA version
+# torchvision>=0.14.0+cu118  # Replace base torchvision with CUDA version
+
+# ============================================================================
+# DEVELOPMENT & TESTING (optional)
+# ============================================================================
+
+# Testing framework (uncomment if needed)
+# pytest>=6.0.0
+# pytest-cov>=3.0.0
+
+# Code formatting (uncomment if needed)
+# black>=22.0.0
+# flake8>=4.0.0
+
+# ============================================================================
+# VERSION COMPATIBILITY NOTES
+# ============================================================================
+# 
+# - Python 3.8+ recommended
+# - Webots R2025a required for simulation
+# - CUDA 11.8+ recommended for GPU acceleration
+# - Node.js 18+ required for dashboard frontend
+# 
+# INSTALLATION INSTRUCTIONS:
+# 1. Install Python 3.8+
+# 2. Create virtual environment: python -m venv venv
+# 3. Activate environment: source venv/bin/activate (Linux/Mac) or venv\Scripts\activate (Windows)
+# 4. Install packages: pip install -r requirements.txt
+# 5. Install Webots R2025a from official website
+# 6. For dashboard: cd dashboard/client && npm install
+# 
+# ============================================================================
