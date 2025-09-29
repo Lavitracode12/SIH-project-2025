@@ -1,0 +1,65 @@
+# Blender 4.5.3 LTS MTL File: 'None'
+# www.blender.org
+
+newmtl black
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl fabric_pattern_07
+Ka 1.000000 1.000000 1.000000
+Kd 0.198547 0.198547 0.198547
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.795455
+illum 9
+map_Ns low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/fabric_pattern_07_4k.blend/textures/fabric_pattern_07_rough_4k.jpg
+map_Bump -bm 1.000000 low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/cloth_normal.png
+
+newmtl fine_grained_wood
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 2 2 2 low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/fine_grained_wood_1k.blend/textures/fine_grained_wood_col_1k.jpg
+map_Ns -s 2 2 2 low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/fine_grained_wood_1k.blend/textures/fine_grained_wood_rough_1k.jpg
+map_Bump -s 2 2 2 -bm 1.000000 low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/fine_grained_wood_1k.blend/textures/fine_grained_wood_nor_gl_1k.exr
+
+newmtl floor
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl metal_1
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.191565 0.191565 0.191565
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+
+newmtl weathered_brown_planks
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/weathered_brown_planks_1k.blend/textures/weathered_brown_planks_diff_1k.jpg
+map_Ns low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/weathered_brown_planks_1k.blend/textures/weathered_brown_planks_rough_1k.jpg
+map_Bump -bm 1.000000 low-poly-generic-green-house/source/E:/All_Ian_Directories/Projects/Sketchfab/avtandil/content_production_april_22/3d_assets/textures/greenhouse/weathered_brown_planks_1k.blend/textures/weathered_brown_planks_nor_gl_1k.exr
